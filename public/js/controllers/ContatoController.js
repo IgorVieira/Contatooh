@@ -20,14 +20,14 @@ angular.module('contatooh').controller('ContatoController',
 
 			$scope.salva = function(){
 				$scope.contato.$save()
-					.then(function(){
-						$scope.mensagem = {texto:'Salvo com sucesso'};
+					.then(function() {
+						$scope.mensagem = {texto: 'Salvo com sucesso'};
 						$scope.contato = new Contato();
+						$scope.$broadcast('contatoSalvo');
 					})
-
-					.catch(function(erro){
-						$scope.mensagem = {texto:'Não foi possível salvar'};
-					});
+					.catch(function(erro) {
+			  			$scope.mensagem = {texto: 'Não foi possível salvar'};
+			  		});
 			};
 
 			Contato.query(function(contatos){

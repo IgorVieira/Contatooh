@@ -14,7 +14,7 @@ describe('Cadastro de contatos', function(){
 		 Math.floor((Math.random()*10000000)+1);
 		pagina.digitarNome('test' + aleatorio);
 		pagina.digitarEmail('test@email' + aleatorio);
-		//pagina.selecionarPrimeiraEmergenciaDaLista();
+		pagina.selecionarPrimeiraEmergenciaDaLista();
 		pagina.salvar();
 		expect(pagina.obterMensagem()).toContain('sucesso');
 	});
