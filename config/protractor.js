@@ -10,7 +10,7 @@ exports.config = {
 		'browserName' : 'chrome',
 		'tunnel-identifier':config.travisJobNumber,
 		'build':config.travisBuild
-	}
+	},
 
 
 
