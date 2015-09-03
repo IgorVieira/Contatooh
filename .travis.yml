@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - 0.10
+- 0.1
 notifications:
-  - igor.p.r.vieira@gmail.com
+- igor.p.r.vieira@gmail.com
 services:
 - mongodb
 env:
@@ -11,17 +11,30 @@ env:
 addons:
   sauce_connect: true
 before_install:
-  - npm install -g bower@1.3
-  - npm install -g grunt-cli@0.1
-  - npm install -g karma-cli@0.0
-  - npm install -g protractor@1.5
-  - webdriver-manager update  
-  - bower install
+- npm install -g bower@1.3
+- npm install -g grunt-cli@0.1
+- npm install -g karma-cli@0.0
+- npm install -g protractor@1.5
+- webdriver-manager update
+- bower install
 before_script:
-  - node test/data.js
-  - grunt
-  - cd dist
+- node test/data.js
+- grunt minifica
 script:
- - karma start config/karma.config.js --single-run --browsers PhantomJS
- - node server &
- - protractor config/protractor.js
+- node server &
+- protractor config/protractor.js
+before_deploy:
+- git config --global user.email 'travis@travis-ci.com'
+- git config --global user.name 'Travis CI'
+- git checkout $TRAVIS_BRANCH
+- git add --all
+- git commit -am "Travis commit"
+deploy:
+  provider: openshift
+  user: igor.p.r.vieira@gmail.com
+  password:
+    secure: JUzk9Jf6gPvWN8OJERBmozQlcNNWq1tmgksVCaOtN0iBqgru6t+PJddIT4V6ySMZMEuv802NeVKofrtuNiN3TcKmvWAXAEayD09jB46DHCUv5QjHioipxqj+mH680kI7zCV1Qt+aZ9yNx82+PNxZDDZW3ZtD9LdJcD0ftS1p01SxRVISBh40JS0emL+jIwt+BiMGJENDZCX8gP5FvA4BSv63lczqqlDsOo142oSZIK21twqkqVflVrDJCkDdIKpWQdfSTYDkhwxC/EWb4BHXY6mm6O+Z/OZ/HSIxswDsPlzJeM9dvpzuFHnzGfCcQmSMt1/A2T59Oj8vwmHGCXVH56NecJ3iZwlpxq4AbZ+xmjuKKmqu99vR5e4a9hx9BIaIhKffbi50DYvOrqTpErRBoDf6kTRBrmjTB4A24ZowHEDkfWaOHf9DEQOmodJeL/49KWcNs577dgZRRjwhgD9htI708pv+/So3Jes1b/8wl3E4An9J8kXjens9ELvVokgOVDr7UwRTh2UVutQ55SWUHuRlzPON1JA1pIWcyTx/LV5w0LlB8XK9oGXDC1tq8IO72aiOy6mnZR2iL5PCPskn7036p8nkw7Wl/EjuGrrA+4jGm2UZLE0n8r8kGlgsNPmQOMY+EQ7lAUrPpvxfsUfunV4Z5nO9VjvN48Hn2cuX6Qk=
+  app: contatooh
+  domain: contatooh-mrbuilder.rhcloud.com
+  on:
+    repo: IgorVieira/Contatooh

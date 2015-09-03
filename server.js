@@ -6,6 +6,10 @@ require('./config/database.js')('mongodb://localhost/contatooh');
 var config = require('./config/config')();
 require('./config/database')(config.db);
 
-http.createServer(app).listen(app.get('port'), function(){
-	console.log('Espress Server escutando na porta '+ app.get('port'));
+http.createServer(app).listen(config.port, config.address
+, function(){
+	console.log('Espress HTTP Server '
+		+ config.address 
+		+ '('+config.env
+		+ ') escutando na porta '+ config.port);
 });
