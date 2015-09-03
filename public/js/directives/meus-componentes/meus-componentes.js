@@ -15,6 +15,7 @@ angular.module('meusComponentes', [])
 
   return directive;
 })
+
 .directive('meuBotaoAviso', function() {
 
     var directive = {}
@@ -28,11 +29,12 @@ angular.module('meusComponentes', [])
 
     directive.template = 
       '<button ng-click="acao()" class="btn btn-warning">' + 
-    	'  {{nome}}' + 
+      '  {{nome}}' + 
       '</buttom>';
     
     return directive;
 })
+
 .directive('meuFocus', function() {
     var directive = {};
     
