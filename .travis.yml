@@ -25,7 +25,7 @@ script:
 - protractor config/protractor.js
 before_deploy:
 - git config --global user.email 'igorpereiraramosvieira@gmail.com'
-- git config --global user.name 'Igor Vieira'
+- git config --global user.name 'IgorVieira'
 - git checkout $TRAVIS_BRANCH
 - git add --all
 - git commit -am "Travis commit"
