@@ -1,14 +1,14 @@
 var passport =  require('passport');
 var GitHubStrategy = require('passport-github').Strategy;
-var findOrCreate = require('mongoose-findorcreate');
+//var findOrCreate = require('mongoose-findorcreate');
 var mongoose = require('mongoose');
 var config = require('./config')();
 
 
 module.exports =  function(){
 
-
-  var githubCallback = "http://"+config.domain+':'+config.port+'/auth/github/callback';  
+  //var githubCallback = "http://"+config.domain+'/auth/github/callback';  
+  var githubCallback = "http://"+config.domain+'/auth/github/callback';  
   var Usuario =  mongoose.model('Usuario');
   
   
