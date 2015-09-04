@@ -28,4 +28,13 @@ angular.module('contatooh',
 		});
 
 		$routeProvider.otherwise({redirectTo:'/contatos'});
+}).run(function ($rootScope, $location) { 
+
+    $rootScope.$on("$routeChangeStart",function(event, next, current){
+        
+        if(next.templateUrl) {
+            ga('send', 'pageview', { page: next.templateUrl });
+          __insp.push([next.templateUrl]);
+        }
+    });
 });
