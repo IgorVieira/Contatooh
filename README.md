@@ -1,4 +1,4 @@
 # Contatooh
 
 
-[![Build Status](https://travis-ci.org/IgorVieira/contatooh.svg?branch=master)](https://travis-ci.org/IgorVieira/contatooh)
+[![Build Status](https://travis-ci.org/IgorVieira/Contatooh.svg?branch=master)](https://travis-ci.org/IgorVieira/Contatooh)
