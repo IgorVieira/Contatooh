@@ -1,4 +1,4 @@
 module.exports = function(){
 	
-	return require('./env/production.js');
+	return require('./env/' + process.env.NODE_ENV + '.js');
 }
