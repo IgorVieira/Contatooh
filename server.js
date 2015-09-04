@@ -4,7 +4,7 @@ var app = require('./config/express')();
 require('./config/passport')();
 require('./config/database')(config.db);
 
-var server = http.createServer(app).listen(config.port, config.address
+http.createServer(app).listen(config.port, config.address
 , function(){
 	console.log('Espress HTTP Server '
 		+ config.address 
