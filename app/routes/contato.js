@@ -1,11 +1,8 @@
-function verificaAutenticacao(req, res, next)
-	{
-		if(req.isAuthenticated())
-		{
+function verificaAutenticacao(req, res, next){
+		if(req.isAuthenticated()){
 			return next();
 		}
-		else
-		{
+		else{
 			res.status('401').json('Não autorizado');
 		}
 
